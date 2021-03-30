@@ -1,4 +1,4 @@
-Dummy REST API for returning some movie data with built in, and adjustable, delay.
+Dummy REST API for returning some movie data with built in, and adjustable, delay. Hosted at https://example-movie-api.vercel.app
 
 # `GET /api/movies`
 ## Parameters
