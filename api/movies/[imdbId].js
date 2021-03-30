@@ -1,15 +1,14 @@
 const fixtures = require("../../fixtures/movies");
+const delayResponse = require("../../helpers/delay").delay;
 
 module.exports = (req, res) => {
   if (req.method === "GET") {
     const {
-      query: { imdbId },
+      query: { imdbId, delay = "5000" },
     } = req;
-    console.log(`imdbid: ${imdbId}`);
-    console.log(JSON.stringify(fixtures.movies, null, 2));
     const movie = fixtures.movies.find((m) => m.imdbId == imdbId);
     if (movie) {
-      res.json(movie);
+      delayResponse(() => res.json(movie), delay);
     } else {
       res.status(404).end("Movie not in database");
     }
