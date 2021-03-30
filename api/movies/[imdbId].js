@@ -1,11 +1,13 @@
-const movies = require("../../fixtures/movies");
+const fixtures = require("../../fixtures/movies");
 
 module.exports = (req, res) => {
   if (req.method === "GET") {
     const {
       query: { imdbId },
     } = req;
-    const movie = movies.find((m) => m.imdbId == imdbId);
+    console.log(`imdbid: ${imdbId}`);
+    console.log(JSON.stringify(fixtures.movies, null, 2));
+    const movie = fixtures.movies.find((m) => m.imdbId == imdbId);
     if (movie) {
       res.json(movie);
     } else {
