@@ -3,6 +3,7 @@ const delayResponse = require("../../helpers/delay").delay;
 
 module.exports = (req, res) => {
   if (req.method === "GET") {
+    res.setHeader("Access-Control-Allow-Origin", "*");
     const {
       query: { imdbId, delay = "5000" },
     } = req;
